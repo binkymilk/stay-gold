@@ -16,6 +16,14 @@ const App = ({ className }) => {
       <Line light={light} />
       <Bulb light={light} setLight={setLight} />
       {light ? <Message>You are amazing!</Message> : null}
+      <footer lassName={`footer ${light ? '-light' : ''}`}>
+        <a href='https://www.youtube.com/watch?v=wY1ieGMKfQ4'>
+          Inspired by{' '}
+          <span role='img' aria-label='stay-gold'>
+            💖
+          </span>
+        </a>
+      </footer>
     </div>
   )
 }
@@ -31,6 +39,32 @@ export default styled(App)`
     position: absolute;
     top: 16px;
     color: #2828f7;
+  }
+
+  footer {
+    margin-top: auto;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: white;
+  }
+
+  footer a::selection,
+  footer a span::selection {
+    color: none;
+    background: none;
+  }
+
+  footer a {
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  a:active,
+  a:visited {
+    color: white;
   }
 
   &.-dark {
