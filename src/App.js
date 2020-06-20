@@ -1,12 +1,21 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import shuffle from 'lodash/shuffle'
 
 import Bulb from './Bulb'
 import Line from './Line'
 import Message from './Message'
 
+import messages from './messages'
+
 const App = ({ className }) => {
   const [light, setLight] = useState(false)
+  const [message, setMessage] = useState('')
+
+  const turnOnLight = () => {
+    setMessage(shuffle(messages)[0])
+    setLight(!light)
+  }
 
   return (
     <div className={`${className} ${light ? '-light' : '-dark'}`}>
@@ -14,8 +23,8 @@ const App = ({ className }) => {
         <span className='note'>Click the light bulb for a surprise!</span>
       ) : null}
       <Line light={light} />
-      <Bulb light={light} setLight={setLight} />
-      {light ? <Message>You are amazing!</Message> : null}
+      <Bulb light={light} onClick={turnOnLight} />
+      {light ? <Message>{message}</Message> : null}
       <footer lassName={`footer ${light ? '-light' : ''}`}>
         <a href='https://www.youtube.com/watch?v=wY1ieGMKfQ4'>
           Inspired by{' '}

@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Bulb = ({ className, light, setLight }) => {
+const Bulb = ({ className, light, onClick }) => {
   return (
     <svg
       className={className}
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
-      onClick={() => setLight(!light)}
+      onClick={onClick}
     >
       <path
         d='M19 16c0 3.9-3.1 7-7 7s-7-3.1-7-7c0-2.4 1.3-4.7 3.4-6L9 6.8c.1-.5.5-.8 1-.8h4c.5 0 .9.3 1 .8l.6 3.2c2.1 1.3 3.4 3.6 3.4 6z'
